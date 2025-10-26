@@ -1,0 +1,44 @@
+# Kütüphane kütüphanesi (örnek olarak eklenmiştir)
+import datetime
+
+# Sınıf tanımı
+class Uye:
+    def __init__(self, ad, yas):
+        # Değişkenler
+        self.ad = ad
+        self.yas = yas
+        self.kitaplar = []
+
+    # Fonksiyon (Metot)
+    def kitap_ekle(self, kitap_adi):
+        # Koşul
+        if len(self.kitaplar) < 3:
+            self.kitaplar.append(kitap_adi)
+            print(f"{kitap_adi} adlı kitap eklendi.")
+        else:
+            print("3’ten fazla kitap alamazsınız!")
+
+    # Fonksiyon parametreli örnek
+    def kitap_iade(self, kitap_adi):
+        if kitap_adi in self.kitaplar:
+            self.kitaplar.remove(kitap_adi)
+            print(f"{kitap_adi} adlı kitap iade edildi.")
+        else:
+            print("Bu kitap sizde kayıtlı değil.")
+
+    # Döngü örneği
+    def kitaplari_goster(self):
+        print(f"{self.ad} adlı üyenin aldığı kitaplar:")
+        for kitap in self.kitaplar:
+            print("-", kitap)
+
+
+# Program başlatma
+uye1 = Uye("Eren", 21)
+uye1.kitap_ekle("Python Programlama")
+uye1.kitap_ekle("Veri Bilimi 101")
+uye1.kitap_ekle("Yapay Zeka Giriş")
+uye1.kitap_ekle("Aşırı Kitap :)")  # Koşul örneği
+uye1.kitaplari_goster()
+uye1.kitap_iade("Python Programlama")
+uye1.kitaplari_goster()
